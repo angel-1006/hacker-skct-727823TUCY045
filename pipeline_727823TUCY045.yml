@@ -1,0 +1,44 @@
+project_name: StaticMalwareAnalyzer_727823TUCY045
+student_name: Sona Angel R A
+roll_number: "727823TUCY045"
+description: >
+  Three-stage pipeline that sets up the lab, runs static
+  malware analysis on test samples, and produces a final report.
+
+stages:
+  - id: stage1
+    name: Lab Setup
+    script: code/setup_lab.py
+    description: Install dependencies and create test samples
+    outputs:
+      - test_samples/sample_benign.txt
+      - test_samples/sample_suspicious.ps1
+      - test_samples/sample_ransom.txt
+
+  - id: stage2
+    name: Tool Execution
+    script: code/run_tool.py
+    depends_on: stage1
+    description: Run the analyzer on all test samples
+    outputs:
+      - outputs/reports/all_reports.json
+      - outputs/reports/summary.csv
+      - outputs/logs/run_tool.log
+
+  - id: stage3
+    name: Result Analysis
+    script: code/analyze_results.py
+    depends_on: stage2
+    description: Aggregate results and print final summary table
+    outputs:
+      - outputs/reports/summary.csv
+
+environment:
+  python_version: "3.13"
+  os: "Kali Linux (VirtualBox VM)"
+  dependencies:
+    - hashlib
+    - math
+    - struct
+    - re
+    - reportlab
