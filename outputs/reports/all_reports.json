@@ -1,0 +1,118 @@
+[
+  {
+    "file": "/home/angel/SKCT_727823TUCY045_StaticMalwareAnalyzer/code/../test_samples/sample_benign.txt",
+    "file_size_bytes": 104,
+    "timestamp": "2026-03-28 07:24:06",
+    "hashes": {
+      "md5": "0a79554d96038971a5bfc98a433003ba",
+      "sha1": "4c3aa197678167f66158c7fd210908d8c1bec29c",
+      "sha256": "b0b2a0ca73b6daad0b30e67c1f1b78d9f0822e57ec0d328df88de113416561ac"
+    },
+    "entropy": 4.8944,
+    "string_count": 1,
+    "sample_strings": [
+      "# Configuration file\nserver=localhost\nport=8080\nlog_level=INFO\nauthor=Sona Angel R A\nroll=727823TUCY045\n"
+    ],
+    "pe_info": {
+      "is_pe": false,
+      "error": "Not a PE file (no MZ header)"
+    },
+    "pattern_matches": [],
+    "risk_score": 0,
+    "verdict": "CLEAN       \u2705",
+    "reasons": []
+  },
+  {
+    "file": "/home/angel/SKCT_727823TUCY045_StaticMalwareAnalyzer/code/../test_samples/sample_ransom.txt",
+    "file_size_bytes": 139,
+    "timestamp": "2026-03-28 07:24:06",
+    "hashes": {
+      "md5": "38530b19235689669e052c3583437876",
+      "sha1": "746670e311e15f0621d4e072fea7d87c7832a3de",
+      "sha256": "9cebac0a10fc8ac0485c707d133a2be4034671889760ac65e9a6a9b5eb5942d9"
+    },
+    "entropy": 4.9995,
+    "string_count": 1,
+    "sample_strings": [
+      "YOUR FILES HAVE BEEN ENCRYPTED\nSend 0.05 bitcoin to wallet address\nVisit http://darksite.onion/decrypt for key\nransom deadline is 72 hours\n"
+    ],
+    "pe_info": {
+      "is_pe": false,
+      "error": "Not a PE file (no MZ header)"
+    },
+    "pattern_matches": [
+      {
+        "rule": "URL",
+        "count": 1,
+        "sample": "http://darksite.onion/decrypt"
+      },
+      {
+        "rule": "Ransom keyword",
+        "count": 5,
+        "sample": "YOUR FILES"
+      }
+    ],
+    "risk_score": 20,
+    "verdict": "LOW RISK    \ud83d\udfe2",
+    "reasons": [
+      "Dangerous pattern: Ransom keyword"
+    ]
+  },
+  {
+    "file": "/home/angel/SKCT_727823TUCY045_StaticMalwareAnalyzer/code/../test_samples/sample_suspicious.ps1",
+    "file_size_bytes": 254,
+    "timestamp": "2026-03-28 07:24:06",
+    "hashes": {
+      "md5": "4edec4fa56217e07773463d0cca9521d",
+      "sha1": "7a2fbfd28bb662263aef90d12e4188ff69720e49",
+      "sha256": "cafe90ed1760f40e7f990ffda080ee06498d6b75795a9b275574bad1fdff4a21"
+    },
+    "entropy": 5.3915,
+    "string_count": 1,
+    "sample_strings": [
+      "# Synthetic test script - not real malware\n# roll_number: 727823TUCY045\npowershell -EncodedCommand dABlAHMAdAA=\n$url = \"http://192.168.1.100/payload\"\nGetAsyncKeyState keystroke logger test\nHKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\n"
+    ],
+    "pe_info": {
+      "is_pe": false,
+      "error": "Not a PE file (no MZ header)"
+    },
+    "pattern_matches": [
+      {
+        "rule": "Hardcoded IP",
+        "count": 1,
+        "sample": "192.168.1.100"
+      },
+      {
+        "rule": "URL",
+        "count": 1,
+        "sample": "http://192.168.1.100/payload"
+      },
+      {
+        "rule": "Registry key",
+        "count": 1,
+        "sample": "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion"
+      },
+      {
+        "rule": "PowerShell encoded",
+        "count": 1,
+        "sample": "powershell -Enc"
+      },
+      {
+        "rule": "CMD/PowerShell",
+        "count": 1,
+        "sample": "powershell"
+      },
+      {
+        "rule": "Keylogger keyword",
+        "count": 2,
+        "sample": "GetAsyncKeyState"
+      }
+    ],
+    "risk_score": 50,
+    "verdict": "MEDIUM RISK \ud83d\udfe1",
+    "reasons": [
+      "Dangerous pattern: PowerShell encoded",
+      "Dangerous pattern: Keylogger keyword"
+    ]
+  }
+]

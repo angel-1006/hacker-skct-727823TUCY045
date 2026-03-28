@@ -1,0 +1,36 @@
+{
+  "file": "/home/angel/SKCT_727823TUCY045_StaticMalwareAnalyzer/code/../test_samples/sample_ransom.txt",
+  "file_size_bytes": 139,
+  "timestamp": "2026-03-28 07:24:06",
+  "hashes": {
+    "md5": "38530b19235689669e052c3583437876",
+    "sha1": "746670e311e15f0621d4e072fea7d87c7832a3de",
+    "sha256": "9cebac0a10fc8ac0485c707d133a2be4034671889760ac65e9a6a9b5eb5942d9"
+  },
+  "entropy": 4.9995,
+  "string_count": 1,
+  "sample_strings": [
+    "YOUR FILES HAVE BEEN ENCRYPTED\nSend 0.05 bitcoin to wallet address\nVisit http://darksite.onion/decrypt for key\nransom deadline is 72 hours\n"
+  ],
+  "pe_info": {
+    "is_pe": false,
+    "error": "Not a PE file (no MZ header)"
+  },
+  "pattern_matches": [
+    {
+      "rule": "URL",
+      "count": 1,
+      "sample": "http://darksite.onion/decrypt"
+    },
+    {
+      "rule": "Ransom keyword",
+      "count": 5,
+      "sample": "YOUR FILES"
+    }
+  ],
+  "risk_score": 20,
+  "verdict": "LOW RISK    \ud83d\udfe2",
+  "reasons": [
+    "Dangerous pattern: Ransom keyword"
+  ]
+}

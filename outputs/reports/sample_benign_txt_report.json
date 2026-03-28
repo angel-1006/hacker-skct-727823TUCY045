@@ -1,0 +1,23 @@
+{
+  "file": "/home/angel/SKCT_727823TUCY045_StaticMalwareAnalyzer/code/../test_samples/sample_benign.txt",
+  "file_size_bytes": 104,
+  "timestamp": "2026-03-28 07:24:06",
+  "hashes": {
+    "md5": "0a79554d96038971a5bfc98a433003ba",
+    "sha1": "4c3aa197678167f66158c7fd210908d8c1bec29c",
+    "sha256": "b0b2a0ca73b6daad0b30e67c1f1b78d9f0822e57ec0d328df88de113416561ac"
+  },
+  "entropy": 4.8944,
+  "string_count": 1,
+  "sample_strings": [
+    "# Configuration file\nserver=localhost\nport=8080\nlog_level=INFO\nauthor=Sona Angel R A\nroll=727823TUCY045\n"
+  ],
+  "pe_info": {
+    "is_pe": false,
+    "error": "Not a PE file (no MZ header)"
+  },
+  "pattern_matches": [],
+  "risk_score": 0,
+  "verdict": "CLEAN       \u2705",
+  "reasons": []
+}

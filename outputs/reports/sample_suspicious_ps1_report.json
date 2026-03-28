@@ -1,0 +1,57 @@
+{
+  "file": "/home/angel/SKCT_727823TUCY045_StaticMalwareAnalyzer/code/../test_samples/sample_suspicious.ps1",
+  "file_size_bytes": 254,
+  "timestamp": "2026-03-28 07:24:06",
+  "hashes": {
+    "md5": "4edec4fa56217e07773463d0cca9521d",
+    "sha1": "7a2fbfd28bb662263aef90d12e4188ff69720e49",
+    "sha256": "cafe90ed1760f40e7f990ffda080ee06498d6b75795a9b275574bad1fdff4a21"
+  },
+  "entropy": 5.3915,
+  "string_count": 1,
+  "sample_strings": [
+    "# Synthetic test script - not real malware\n# roll_number: 727823TUCY045\npowershell -EncodedCommand dABlAHMAdAA=\n$url = \"http://192.168.1.100/payload\"\nGetAsyncKeyState keystroke logger test\nHKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\n"
+  ],
+  "pe_info": {
+    "is_pe": false,
+    "error": "Not a PE file (no MZ header)"
+  },
+  "pattern_matches": [
+    {
+      "rule": "Hardcoded IP",
+      "count": 1,
+      "sample": "192.168.1.100"
+    },
+    {
+      "rule": "URL",
+      "count": 1,
+      "sample": "http://192.168.1.100/payload"
+    },
+    {
+      "rule": "Registry key",
+      "count": 1,
+      "sample": "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion"
+    },
+    {
+      "rule": "PowerShell encoded",
+      "count": 1,
+      "sample": "powershell -Enc"
+    },
+    {
+      "rule": "CMD/PowerShell",
+      "count": 1,
+      "sample": "powershell"
+    },
+    {
+      "rule": "Keylogger keyword",
+      "count": 2,
+      "sample": "GetAsyncKeyState"
+    }
+  ],
+  "risk_score": 50,
+  "verdict": "MEDIUM RISK \ud83d\udfe1",
+  "reasons": [
+    "Dangerous pattern: PowerShell encoded",
+    "Dangerous pattern: Keylogger keyword"
+  ]
+}

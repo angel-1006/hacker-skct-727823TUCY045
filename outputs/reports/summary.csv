@@ -1,0 +1,4 @@
+file,file_size_bytes,entropy,string_count,risk_score,verdict,timestamp
+sample_benign.txt,104,4.8944,1,0,CLEAN       ✅,2026-03-28 07:24:06
+sample_ransom.txt,139,4.9995,1,20,LOW RISK    🟢,2026-03-28 07:24:06
+sample_suspicious.ps1,254,5.3915,1,50,MEDIUM RISK 🟡,2026-03-28 07:24:06

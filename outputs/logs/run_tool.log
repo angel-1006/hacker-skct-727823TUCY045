@@ -1,0 +1,6 @@
+roll_number: 727823TUCY045
+timestamp  : 2026-03-28 07:24:06
+=======================================================
+2026-03-28 07:24:06 | sample_benign.txt              | entropy=4.8944 | score=  0 | CLEAN       ✅
+2026-03-28 07:24:06 | sample_ransom.txt              | entropy=4.9995 | score= 20 | LOW RISK    🟢
+2026-03-28 07:24:06 | sample_suspicious.ps1          | entropy=5.3915 | score= 50 | MEDIUM RISK 🟡
